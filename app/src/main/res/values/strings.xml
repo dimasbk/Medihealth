@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Medihealth</string>
+    <string name="hello_jeny">Hello, Jeny</string>
+    <string name="let_s_check">Lets check your schedule today!</string>
+</resources>
