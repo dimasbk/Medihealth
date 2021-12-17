@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="50dp"
+        android:layout_marginLeft="30dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="65dp"
         android:text="@string/welcome"
@@ -31,7 +31,7 @@
             android:textSize= "16sp"
             android:text="@string/baru"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="30dp"
             android:layout_alignParentTop="true"
             android:layout_marginTop="5dp"
             android:gravity="top"/>
@@ -61,7 +61,7 @@
         tools:layout_editor_absoluteX="56dp"
         tools:layout_editor_absoluteY="287dp"
         android:layout_marginTop="80dp"
-        android:layout_marginLeft="50dp"
+        android:layout_marginLeft="30dp"
         android:hint="@string/email"
         android:paddingLeft="20dp"/>
 
@@ -74,7 +74,7 @@
         tools:layout_editor_absoluteY="380dp"
         android:inputType="textPassword"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="50dp"
+        android:layout_marginLeft="30dp"
         android:hint="@string/pass"
         android:paddingLeft="20dp"/>
 
@@ -89,7 +89,7 @@
         tools:layout_editor_absoluteX="56dp"
         tools:layout_editor_absoluteY="483dp"
         android:layout_marginTop="30dp"
-        android:layout_marginLeft="50dp"/>
+        android:layout_marginLeft="30dp"/>
 
 
 
