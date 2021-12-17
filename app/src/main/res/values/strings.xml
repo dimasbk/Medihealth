@@ -2,4 +2,19 @@
     <string name="app_name">Medihealth</string>
     <string name="hello_jeny">Hello, Jeny</string>
     <string name="let_s_check">Lets check your schedule today!</string>
+    <string name="welcome">Welcome</string>
+    <string name="email">Masukkan Email</string>
+    <string name="pass">Masukkan Password</string>
+    <string name="login">Login</string>
+    <string name="baru">Pengguna Baru?</string>
+    <string name="signup">Sign Up</string>
+    <string name="register_to">Register to Medihealth</string>
+    <string name="passwarn">Use at least 8 numbers & letters without any space</string>
+    <string name="tanggal">Tanggal Lahir</string>
+    <string name="jenis_kelam">Jenis Kelamin</string>
+    <string name="laki">Laki - laki</string>
+    <string name="perempuan">Perempuan</string>
+    <string name="terms">I have read and agrees to abide Healthcheck Term & Condition and Privacy Policy</string>
+    <string name="regis">Sign Up</string>
+
 </resources>

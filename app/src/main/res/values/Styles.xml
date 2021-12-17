@@ -23,4 +23,76 @@
         </item>
 
     </style>
+
+    <style name="welcome_bac">
+
+        <item name="android:textSize">
+            30sp
+        </item>
+
+        <item name="android:textColor">
+            #07234B
+        </item>
+
+    </style>
+
+    <style name="register_to">
+
+        <item name="android:textSize">
+            30sp
+        </item>
+
+        <item name="android:textColor">
+            #07234B
+        </item>
+
+    </style>
+
+    <style name="use_at_leas">
+
+        <item name="android:textSize">
+            12sp
+        </item>
+
+        <item name="android:textColor">
+            #C9C9C9
+        </item>
+
+    </style>
+
+    <style name="tanggal">
+
+        <item name="android:textSize">
+            12sp
+        </item>
+
+        <item name="android:textColor">
+            #999999
+        </item>
+
+    </style>
+
+    <style name="jenis_kelam">
+
+        <item name="android:textSize">
+            12sp
+        </item>
+
+        <item name="android:textColor">
+            #999999
+        </item>
+
+    </style>
+
+    <style name="jk">
+
+        <item name="android:textSize">
+            14sp
+        </item>
+
+        <item name="android:textColor">
+            #999999
+        </item>
+
+    </style>
 </resources>
