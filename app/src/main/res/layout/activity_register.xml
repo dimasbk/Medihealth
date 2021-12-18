@@ -60,7 +60,7 @@
         </LinearLayout>
 
         <EditText
-            android:id="@+id/regis_email"
+            android:id="@+id/regis_nama"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/frame"
@@ -68,6 +68,19 @@
             tools:layout_editor_absoluteX="56dp"
             tools:layout_editor_absoluteY="287dp"
             android:layout_marginTop="50dp"
+            android:layout_marginLeft="24dp"
+            android:hint="@string/nama"
+            android:paddingLeft="20dp"/>
+
+        <EditText
+            android:id="@+id/regis_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/frame"
+            android:inputType="textEmailAddress"
+            tools:layout_editor_absoluteX="56dp"
+            tools:layout_editor_absoluteY="287dp"
+            android:layout_marginTop="20dp"
             android:layout_marginLeft="24dp"
             android:hint="@string/email"
             android:paddingLeft="20dp"/>
