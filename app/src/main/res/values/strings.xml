@@ -17,5 +17,7 @@
     <string name="terms">I have read and agrees to abide Healthcheck Term and Condition and Privacy Policy</string>
     <string name="regis">Sign Up</string>
     <string name="nama">Masukkan Nama</string>
+    <string name="hello_profil_fragment">Profile</string>
+    <string name="hello_reservasi_fragment">Reservasi</string>
 
 </resources>

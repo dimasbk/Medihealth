@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MenuActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/hello_jeny"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="65dp"
+            android:gravity="top"
+            android:text="@string/hello_jeny"
+            android:textAppearance="@style/hello_jeny" />
+
+        <TextView
+            android:id="@+id/let_s_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/hello_jeny"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="24dp"
+            android:gravity="top"
+            android:text="@string/let_s_check"
+            android:textAppearance="@style/let_s_check" />
+
+        <ImageView
+            android:id="@+id/some_id"
+            android:layout_width="match_parent"
+            android:layout_height="183dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="20dp"
+            android:clipToOutline="true"
+            android:gravity="center"
+            android:src="@drawable/menu" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/bt3"
+                    android:layout_width="159dp"
+                    android:layout_height="61dp"
+                    android:layout_marginLeft="24dp"
+                    android:drawableLeft="@drawable/homeicon"
+                    android:elevation="35dp"
+                    android:text="Medihealth Application"
+                    android:textColor="@color/black"
+                    android:textSize="10dp"
+                    app:backgroundTint=" #cce7e8" />
+
+                <Button
+                    android:id="@+id/bt4"
+                    android:layout_width="159dp"
+                    android:layout_height="61dp"
+                    android:layout_marginLeft="24dp"
+                    android:drawableLeft="@drawable/dr"
+                    android:elevation="35dp"
+                    android:text="Medihealth Application"
+                    android:textColor="@color/black"
+                    android:textSize="10dp"
+                    app:backgroundTint=" #cce7e8" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/bt1"
+                android:layout_width="159dp"
+                android:layout_height="61dp"
+                android:layout_marginLeft="24dp"
+                android:drawableLeft="@drawable/homeicon"
+                android:elevation="35dp"
+                android:text="Medihealth Application"
+                android:textColor="@color/black"
+                android:textSize="10dp"
+                app:backgroundTint=" #cce7e8" />
+
+            <Button
+                android:id="@+id/bt2"
+                android:layout_width="159dp"
+                android:layout_height="61dp"
+                android:layout_marginLeft="24dp"
+                android:drawableLeft="@drawable/dr"
+                android:elevation="35dp"
+                android:text="Medihealth Application"
+                android:textColor="@color/black"
+                android:textSize="10dp"
+                app:backgroundTint=" #cce7e8" />
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+</LinearLayout>

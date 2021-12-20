@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Home"
+        android:id="@+id/mainMenuFragment"
+        android:icon="@drawable/home_navbar"/>
+    <item android:title="Reservasi"
+        android:id="@+id/reservasiFragment"
+        android:icon="@drawable/calendar_navbar"/>
+    <item android:title="Profil"
+        android:id="@+id/profilFragment"
+        android:icon="@drawable/profile_navbar"/>
+</menu>
