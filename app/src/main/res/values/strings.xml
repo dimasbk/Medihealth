@@ -19,5 +19,17 @@
     <string name="nama">Masukkan Nama</string>
     <string name="hello_profil_fragment">Profile</string>
     <string name="hello_reservasi_fragment">Reservasi</string>
+    <string name="medihealth_">Medihealth Hospital</string>
+    <string name="first_par">
+        Pellentesque pretium ultricies lobortis. Sed suscipit congue nibh, nec ornare dui hendrerit ut. Phasellus nibh erat, tristique vel mollis quis, lobortis non.
+    </string>
+    <string name="second_par">
+        Vivamus sit amet magna sed lectus consequat mattis eget non neque. Fusce varius, ipsum in aliquam fringilla, massa felis lobortis dui,
+    </string>
+    <string name="third_par">
+        Pellentesque at orci vitae massa tristique faucibus. Aenean a fermentum ligula, feugiat elementum velit. Morbi fringilla turpis in tristique sagittis. Donec feugiat, libero vel gravida sodales, metus ipsum suscipit est, sit amet rhoncus dui magna sed orci. Duis hendrerit eget lacus sit amet varius. Donec semper fermentum velit, non dapibus est.
+    </string>
+
+
 
 </resources>

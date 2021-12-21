@@ -60,7 +60,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/bt3"
+                    android:id="@+id/medihealth_app_btn"
                     android:layout_width="159dp"
                     android:layout_height="61dp"
                     android:layout_marginLeft="24dp"
@@ -72,13 +72,13 @@
                     app:backgroundTint=" #cce7e8" />
 
                 <Button
-                    android:id="@+id/bt4"
+                    android:id="@+id/jadwal_dokter_btn"
                     android:layout_width="159dp"
                     android:layout_height="61dp"
                     android:layout_marginLeft="24dp"
                     android:drawableLeft="@drawable/dr"
                     android:elevation="35dp"
-                    android:text="Medihealth Application"
+                    android:text="Jadwal Dokter"
                     android:textColor="@color/black"
                     android:textSize="10dp"
                     app:backgroundTint=" #cce7e8" />
@@ -86,38 +86,6 @@
             </LinearLayout>
 
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/bt1"
-                android:layout_width="159dp"
-                android:layout_height="61dp"
-                android:layout_marginLeft="24dp"
-                android:drawableLeft="@drawable/homeicon"
-                android:elevation="35dp"
-                android:text="Medihealth Application"
-                android:textColor="@color/black"
-                android:textSize="10dp"
-                app:backgroundTint=" #cce7e8" />
-
-            <Button
-                android:id="@+id/bt2"
-                android:layout_width="159dp"
-                android:layout_height="61dp"
-                android:layout_marginLeft="24dp"
-                android:drawableLeft="@drawable/dr"
-                android:elevation="35dp"
-                android:text="Medihealth Application"
-                android:textColor="@color/black"
-                android:textSize="10dp"
-                app:backgroundTint=" #cce7e8" />
-
-        </LinearLayout>
-
 
 
     </LinearLayout>
