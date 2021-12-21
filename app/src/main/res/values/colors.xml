@@ -10,4 +10,15 @@
     <color name="biru">#1B50A0</color>
     <color name="welcome">#07234B</color>
 
+
+    <color name="hitam">#221F20</color>
+    <color name="Abu_abu">#E0E0E0</color>
+    <color name="Abu_abu_gelap">#8C8C8C</color>
+    <color name="Abu_abu_light">#F7F7F7</color>
+    <color name="Abu_abu_stroke">#CCCCCC</color>
+
+    <color name="merah">#EB5757</color>
+    <color name="hijau">#098877</color>
+    <color name="kuning">#eaaa00</color>
+
 </resources>

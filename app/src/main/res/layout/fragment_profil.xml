@@ -1,14 +1,210 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfilFragment">
+    tools:context=".ProfileActivity">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_profil_fragment" />
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="205px">
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="105px">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="2">
+
+                    <TextView
+                        android:id="@+id/tv_id_nama_depan_user"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nama User"
+                        android:layout_marginLeft="66px"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="-19px"
+                        android:textColor="@color/hitam"
+                        android:textSize="72px"
+                        android:fontFamily="@font/poppins_bold"/>
+
+                    <TextView
+                        android:id="@+id/tv_id_nama_belakang_user"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nama User"
+                        android:layout_marginLeft="66px"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="26px"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textColor="@color/Abu_abu_gelap"
+                        android:textSize="35px"/>
+
+                </LinearLayout>
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fab_edit_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="82px"
+                    android:layout_weight="2"
+                    android:backgroundTint="@color/biru"
+                    android:clickable="true"
+                    app:fabSize="normal"
+                    app:srcCompat="@drawable/ic_baseline_edit_24"
+                    app:tint="@color/white" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:layout_marginTop="2dp"
+                android:background="@color/Abu_abu_stroke" />
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="12dp"
+                android:background="@color/Abu_abu" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="52px"
+                android:layout_marginBottom="52px"
+                android:weightSum="2">
+
+                <ScrollView
+                    android:id="@+id/corner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="-20dp"
+                    android:layout_marginRight="16dp"
+                    android:orientation="vertical"
+                    android:paddingTop="22dp"
+                    android:paddingBottom="22dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_id_label_email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Email"
+                            android:fontFamily="@font/poppins_regular"
+                            android:textColor="@color/Abu_abu_gelap"
+                            android:textSize="35px"  />
+
+                        <TextView
+                            android:id="@+id/tv_id_input_view_email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Alamat Email"
+                            android:textColor="@color/hitam"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginBottom="10dp"
+                            android:fontFamily="@font/poppins_semi_bold"
+                            android:textSize="42px" />
+
+                        <View
+                            android:layout_width="wrap_content"
+                            android:layout_height="2dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@color/Abu_abu_stroke"
+                            android:layout_marginBottom="20dp"/>
+
+                        <TextView
+                            android:id="@+id/tv_id_label_umur"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Umur"
+                            android:fontFamily="@font/poppins_regular"
+                            android:textColor="@color/Abu_abu_gelap"
+                            android:textSize="35px"  />
+
+                        <TextView
+                            android:id="@+id/tv_id_input_view_umur"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginBottom="10dp"
+                            android:fontFamily="@font/poppins_semi_bold"
+                            android:text="Umur"
+                            android:textColor="@color/hitam"
+                            android:textSize="42px" />
+
+                        <View
+                            android:layout_width="wrap_content"
+                            android:layout_height="2dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@color/Abu_abu_stroke"
+                            android:layout_marginBottom="10dp"/>
+
+                        <TextView
+                            android:id="@+id/tv_id_label_jenis_kelamin"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Jenis Kelamin"
+                            android:fontFamily="@font/poppins_regular"
+                            android:textColor="@color/Abu_abu_gelap"
+                            android:textSize="35px"  />
+
+                        <TextView
+                            android:id="@+id/tv_id_input_view_jenis_kelamin"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginBottom="10dp"
+                            android:fontFamily="@font/poppins_semi_bold"
+                            android:text="Jenis Kelamin"
+                            android:textColor="@color/hitam"
+                            android:textSize="42px" />
+
+                        <View
+                            android:layout_width="wrap_content"
+                            android:layout_height="2dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@color/Abu_abu_stroke"
+                            android:layout_marginBottom="10dp"/>
+
+                        <Button
+                            android:id="@+id/btn_logout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/biru"
+                            android:fontFamily="@font/poppins_semi_bold"
+                            android:text="Logout"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white" />
+
+                    </LinearLayout>
+
+                </ScrollView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
