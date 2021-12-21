@@ -37,7 +37,14 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertDataUser(ContentValues values){
+    public boolean insertDataUser(String nama, String email, String pass, String lahir, String jk){
+        SQLiteDatabase DB = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(DBHelper.row_nama_user, nama);
+        values.put(DBHelper.row_email, email);
+        values.put(DBHelper.row_password, pass);
+        values.put(DBHelper.row_lahir, lahir);
+        values.put(DBHelper.row_jk, jk);
         long insert = db.insert(table_user,null,values);
         if (insert == -1) {
             return false;
