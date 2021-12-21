@@ -1,20 +1,28 @@
 package com.example.medihealth;
 
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
+
+import static android.content.Context.MODE_PRIVATE;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link ProfilFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ProfilFragment extends Fragment {
+public class ProfilFragment extends Fragment implements View.OnClickListener {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -25,7 +33,12 @@ public class ProfilFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    Button logout;
+    View mView;
+    public Button button_logout;
+
+    SharedPreferences getDataMail, getDataPass;
+
+//    SharedPreferences getDataId = getActivity().getSharedPreferences("SESSION_id", MODE_PRIVATE);
 
     public ProfilFragment() {
         // Required empty public constructor aa
@@ -57,7 +70,7 @@ public class ProfilFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-//        logout = findViewById(R.id.btLogout);
+
 
     }
 
@@ -65,6 +78,56 @@ public class ProfilFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profil, container, false);
+        mView = inflater.inflate(R.layout.fragment_profil, container, false);
+
+
+        getDataMail = getActivity().getSharedPreferences("SESSION_mail", MODE_PRIVATE);
+        getDataPass = getActivity().getSharedPreferences("SESSION_pass", MODE_PRIVATE);
+
+        button_logout = (Button)mView.findViewById(R.id.btn_logout);
+        button_logout.setOnClickListener(this);
+        return mView;
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btn_logout:
+                showDialogLogout();
+                Toast.makeText(getActivity(), "Long pressing", Toast.LENGTH_SHORT).show();
+                //do your stuff
+                break;
+        }
+        // implements your things
+    }
+
+
+    private void showDialogLogout(){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(requireContext());
+        alertDialogBuilder.setTitle("Yakin ingin keluar aplikasi?");
+
+        alertDialogBuilder
+//                .setMessage("Klik Ya untuk keluar!")
+                .setIcon(R.drawable.logo)
+                .setCancelable(false)
+                .setPositiveButton("Ya",new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,int id) {
+                        getDataMail.edit().clear().commit();
+                        getDataPass.edit().clear().commit();
+                        Intent intent = new Intent(getActivity(), LoginActivity.class);
+                        startActivity(intent);
+                        getActivity().finish();
+                    }
+                })
+                .setNegativeButton("Tidak",new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        alertDialog.show();
     }
 }
