@@ -29,7 +29,13 @@
     <string name="third_par">
         Pellentesque at orci vitae massa tristique faucibus. Aenean a fermentum ligula, feugiat elementum velit. Morbi fringilla turpis in tristique sagittis. Donec feugiat, libero vel gravida sodales, metus ipsum suscipit est, sit amet rhoncus dui magna sed orci. Duis hendrerit eget lacus sit amet varius. Donec semper fermentum velit, non dapibus est.
     </string>
-
+    <string name="reservasi">Reservasi</string>
+    <string name="data_pasien">Data Pasien</string>
+    <string name="umur_21">Umur : 21</string>
+    <string name="tanggal_res">Tanggal Reservasi</string>
+    <string name="pilih_cara_">Pilih Cara Bayar</string>
+    <string name="poli">Poli</string>
+    <string name="dokter">Dokter</string>
 
 
 </resources>

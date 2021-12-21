@@ -1,5 +1,6 @@
 package com.example.medihealth;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +8,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,6 +62,18 @@ public class ReservasiFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_reservasi, container, false);
+        View view = inflater.inflate(R.layout.fragment_reservasi, container, false);
+
+        FloatingActionButton add_reservasi;
+        add_reservasi = view.findViewById(R.id.floatingActionButtonreservasi);
+        add_reservasi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent med = new Intent(getActivity(), ReservasiActivity.class);
+                startActivity(med);
+            }
+        });
+
+        return view;
     }
 }

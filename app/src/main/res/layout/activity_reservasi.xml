@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ReservasiActivity"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/data_pasien"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="24dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="50dp"
+            android:text="@string/data_pasien"
+            android:textAppearance="@style/data_pasien"
+            android:gravity="top"
+            />
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/data_pasien"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/kolom"
+            android:ems="10"
+            android:hint="Email"
+            android:inputType="textPersonName"
+            android:paddingStart="15dp" />
+
+        <TextView
+            android:id="@+id/umur_21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="24dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"
+            android:text="@string/umur_21"
+            android:textAppearance="@style/umur_21"
+            android:gravity="top"
+            />
+
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="15dp"/>
+
+        <TextView
+            android:id="@+id/tanggal_lahir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="24dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"
+            android:text="@string/tanggal"
+            android:textAppearance="@style/tanggal_lahir"
+            android:gravity="top"
+            />
+
+        <EditText
+            android:id="@+id/tgl_lahir"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/data_pasien"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/kolom"
+            android:ems="10"
+            android:inputType="date"
+            android:paddingStart="15dp" />
+
+        <TextView
+            android:id="@+id/jenis_kelam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="24dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"
+            android:text="@string/jenis_kelam"
+            android:textAppearance="@style/jenis_kelam"
+            android:gravity="top"
+            />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rgreg"
+            android:layout_below="@+id/textView6">
+            <RadioButton
+                android:id="@+id/rbreg1"
+                android:layout_width="wrap_content"
+                android:layout_height="37dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginEnd="280dp"
+                android:text="Laki - laki" />
+
+            <RadioButton
+                android:id="@+id/rbreg2"
+                android:layout_width="wrap_content"
+                android:layout_height="33dp"
+                android:layout_below="@+id/checkBox"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="267dp"
+                android:text="Perempuan" />
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/pilih_car"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="24dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"
+            android:text="Pilih Cara Bayar"
+            android:textAppearance="@style/pilih_cara_"
+            android:gravity="top"
+            />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rgreg2"
+            android:layout_below="@+id/textView6">
+            <RadioButton
+                android:id="@+id/rbbayar1"
+                android:layout_width="wrap_content"
+                android:layout_height="37dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginEnd="280dp"
+                android:text="UMUM" />
+
+            <RadioButton
+                android:id="@+id/rbbayar2"
+                android:layout_width="wrap_content"
+                android:layout_height="33dp"
+                android:layout_below="@+id/checkBox"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="267dp"
+                android:text="JKN" />
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/tanggal_res"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="24dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"
+            android:text="@string/tanggal_res"
+            android:textAppearance="@style/tanggal_res"
+            android:gravity="top"
+            />
+
+        <EditText
+            android:id="@+id/tgl_reservasi"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/data_pasien"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/kolom"
+            android:ems="10"
+            android:inputType="date"
+            android:paddingStart="15dp" />
+
+        <TextView
+            android:id="@+id/poli"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="24dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"
+            android:text="@string/poli"
+            android:textAppearance="@style/poli"
+            android:gravity="top"
+            />
+
+        <Spinner
+            android:id="@+id/poli_spinner"
+            android:layout_width="362dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:entries="@array/poli_reservasi"
+
+            />
+
+        <TextView
+            android:id="@+id/dokter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="24dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"
+            android:text="@string/dokter"
+            android:textAppearance="@style/dokter"
+            android:gravity="top"
+            />
+
+        <Spinner
+            android:id="@+id/dokter_spinner"
+            android:layout_width="362dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:entries="@array/dokter_reservasi"/>
+
+        <Button
+            android:id="@+id/login_button"
+            android:layout_width="329dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/password"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/button_login"
+            android:text="Submit"
+            app:backgroundTint="#1B50A0" />
+
+
+
+
+
+
+    </LinearLayout>
+
+</ScrollView>

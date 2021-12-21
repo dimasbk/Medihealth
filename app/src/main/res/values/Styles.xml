@@ -144,5 +144,100 @@
 
     </style>
 
+    <style name="reservasi">
+
+        <item name="android:textSize">
+            30sp
+        </item>
+
+        <item name="android:textColor">
+            #07234B
+        </item>
+
+    </style>
+
+    <style name="data_pasien">
+
+        <item name="android:textSize">
+            12sp
+        </item>
+
+        <item name="android:textColor">
+            #07234B
+        </item>
+
+    </style>
+
+    <style name="umur_21">
+
+        <item name="android:textSize">
+            12sp
+        </item>
+
+        <item name="android:textColor">
+            #07234B
+        </item>
+
+    </style>
+
+    <style name="tanggal_lahir">
+
+        <item name="android:textSize">
+            12sp
+        </item>
+
+        <item name="android:textColor">
+            #07234B
+        </item>
+
+    </style>
+
+    <style name="tanggal_res">
+
+        <item name="android:textSize">
+            12sp
+        </item>
+
+        <item name="android:textColor">
+            #07234B
+        </item>
+
+    </style>
+
+    <style name="pilih_cara_">
+
+        <item name="android:textSize">
+            12sp
+        </item>
+
+        <item name="android:textColor">
+            #07234B
+        </item>
+
+    </style>
+
+    <style name="poli">
+
+        <item name="android:textSize">
+            12sp
+        </item>
+
+        <item name="android:textColor">
+            #07234B
+        </item>
+
+    </style>
+
+    <style name="dokter">
+
+        <item name="android:textSize">
+            12sp
+        </item>
+
+        <item name="android:textColor">
+            #07234B
+        </item>
+
+    </style>
 
 </resources>
