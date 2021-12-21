@@ -3,6 +3,7 @@ package com.example.medihealth;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +16,9 @@ public class LoginActivity extends AppCompatActivity {
     private EditText login_email, login_pass;
     private Button btn_login;
     DBHelper dbHandler;
+    SharedPreferences.Editor setDataMail, setDataPass, setDataId;
 
+    int loss = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +30,10 @@ public class LoginActivity extends AppCompatActivity {
         login_pass = findViewById(R.id.password);
         btn_login = findViewById(R.id.login_button);
         tv_signup = findViewById(R.id.textView9);
+
+        setDataMail = getSharedPreferences("SESSION_mail", MODE_PRIVATE).edit();
+        setDataPass = getSharedPreferences("SESSION_pass", MODE_PRIVATE).edit();
+        setDataId = getSharedPreferences("SESSION_id", MODE_PRIVATE).edit();
 
         tv_signup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,9 +50,18 @@ public class LoginActivity extends AppCompatActivity {
                 String password = login_pass.getText().toString().trim();
                 boolean result = dbHandler.checkUser(email, password);
                 if(result == true){
+                    setDataMail.putString("SESSION_mail", email);
+                    setDataMail.apply();
+                    setDataPass.putString("SESSION_pass", password);
+                    setDataPass.apply();
+                    loss = 1;
+
                     Toast.makeText(LoginActivity.this, "Berhasil Login", Toast.LENGTH_SHORT).show();
-                    Intent loggedin = new Intent(getApplicationContext(), MenuActivity.class);
+                    Intent loggedin = new Intent(getApplicationContext(), SplashScreenActivity.class);
+
+                    loggedin.putExtra("loss", loss);
                     startActivity(loggedin);
+                    finish();
                 }else{
                     Toast.makeText(LoginActivity.this, "Login Gagal, Mohon Coba Kembali", Toast.LENGTH_SHORT).show();
                 }
