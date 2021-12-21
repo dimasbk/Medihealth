@@ -44,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
                 boolean result = dbHandler.checkUser(email, password);
                 if(result == true){
                     Toast.makeText(LoginActivity.this, "Berhasil Login", Toast.LENGTH_SHORT).show();
-                    Intent loggedin = new Intent(getApplicationContext(), MainActivity.class);
+                    Intent loggedin = new Intent(getApplicationContext(), MenuActivity.class);
                     startActivity(loggedin);
                 }else{
                     Toast.makeText(LoginActivity.this, "Login Gagal, Mohon Coba Kembali", Toast.LENGTH_SHORT).show();

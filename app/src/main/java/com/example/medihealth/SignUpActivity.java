@@ -18,7 +18,7 @@ public class SignUpActivity extends AppCompatActivity {
     private RadioGroup rg_regis;
     private RadioButton rb1, rb2, rb;
     private CheckBox termsandcond;
-    private Button btn_regis;
+    private Button sign_up;
     DBHelper dbHelper;
 
     @Override
@@ -35,11 +35,9 @@ public class SignUpActivity extends AppCompatActivity {
         rb1 = findViewById(R.id.rb1);
         rb2 = findViewById(R.id.rb2);
         termsandcond = findViewById(R.id.termsandcond);
-        btn_regis = findViewById(R.id.btn_regis);
+        sign_up = findViewById(R.id.btn_regis);
 
-
-
-        btn_regis.setOnClickListener(new View.OnClickListener() {
+        sign_up.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String email = regis_email.getText().toString();
@@ -64,11 +62,6 @@ public class SignUpActivity extends AppCompatActivity {
                 }else {
                     regis(nama, email, pass, lahir, jk);
                 }
-
-
-
-
-
             }
         });
 
