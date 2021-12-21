@@ -2,6 +2,7 @@ package com.example.medihealth;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -21,6 +22,10 @@ public class DBHelper extends SQLiteOpenHelper {
 
     private SQLiteDatabase db;
 
+//    SharedPreferences getDataMail, getDataId;
+//
+//    getDataMail = getSharedPreferences("SESSION_mail", MODE_PRIVATE);
+//    getDataId = getSharedPreferences("SESSION_id", MODE_PRIVATE);
 
     public DBHelper(@Nullable Context context) {
         super(context, db_name, null, 1);
@@ -52,6 +57,17 @@ public class DBHelper extends SQLiteOpenHelper {
         } else {
             return true;
         }
+    }
+
+    public Cursor readUserData(String email){
+        String query = "SELECT * FROM " + table_user + "WHERE" + row_email + "=" + email ;
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = null;
+        if(db != null){
+            cursor = db.rawQuery(query, null);
+        }
+        return cursor;
     }
 
     public boolean checkUser(String email, String password){

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +17,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText login_email, login_pass;
     private Button btn_login;
     DBHelper dbHandler;
+//    String email;
     SharedPreferences.Editor setDataMail, setDataPass, setDataId;
 
     int loss = 0;
@@ -52,9 +54,12 @@ public class LoginActivity extends AppCompatActivity {
                 if(result == true){
                     setDataMail.putString("SESSION_mail", email);
                     setDataMail.apply();
+//                    email = getText().toString.trim(setDataMail);
                     setDataPass.putString("SESSION_pass", password);
                     setDataPass.apply();
                     loss = 1;
+
+//                    dbHandler.readUserData(email);
 
                     Toast.makeText(LoginActivity.this, "Berhasil Login", Toast.LENGTH_SHORT).show();
                     Intent loggedin = new Intent(getApplicationContext(), SplashScreenActivity.class);

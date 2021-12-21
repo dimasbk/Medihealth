@@ -66,11 +66,22 @@ public class MainMenuFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_main_menu, container, false);
 
-        Button btn = view.findViewById(R.id.medihealth_app_btn);
-        btn.setOnClickListener(new View.OnClickListener() {
+        Button btnAbout = view.findViewById(R.id.medihealth_app_btn);
+        Button btnJadwal = view.findViewById(R.id.jadwal_dokter_btn);
+
+        btnAbout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent med = new Intent(getActivity(), MedihealthAppActivity.class);
+                startActivity(med);
+            }
+        });
+
+
+        btnJadwal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent med = new Intent(getActivity(), JadwalDokterActivity.class);
                 startActivity(med);
             }
         });
