@@ -1,6 +1,8 @@
 package com.example.medihealth;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.os.Bundle;
 
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -10,6 +12,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
+
+import static android.content.Context.MODE_PRIVATE;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,6 +32,14 @@ public class MainMenuFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    View mView;
+    TextView tvHelloUser;
+    String u_nama;
+
+    SharedPreferences getDataId;
+    DBHelper dbHelper;
+
 
     public MainMenuFragment() {
         // Required empty public constructor
@@ -66,8 +79,33 @@ public class MainMenuFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_main_menu, container, false);
 
+        dbHelper = new DBHelper(getActivity());
+
+        getDataId = getActivity().getSharedPreferences("SESSION_id", MODE_PRIVATE);
+
         Button btnAbout = view.findViewById(R.id.medihealth_app_btn);
         Button btnJadwal = view.findViewById(R.id.jadwal_dokter_btn);
+        tvHelloUser = view.findViewById(R.id.hello_user);
+
+        String id = getDataId.getString("SESSION_id","");
+
+        Cursor curNama = dbHelper.readNamaProfil(id);
+
+        u_nama = curNama.getString(0);
+
+        String lastName = "";
+        String firstName= "";
+        if(u_nama.split("\\w+").length>1){
+
+            lastName = u_nama.substring(u_nama.lastIndexOf(" ")+1);
+            firstName = u_nama.substring(0, u_nama.lastIndexOf(' '));
+        }
+        else{
+            firstName = u_nama;
+            lastName = "";
+        }
+
+        tvHelloUser.setText("Hello, "+firstName);
 
         btnAbout.setOnClickListener(new View.OnClickListener() {
             @Override

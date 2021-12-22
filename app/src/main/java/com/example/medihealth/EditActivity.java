@@ -141,8 +141,8 @@ public class EditActivity extends AppCompatActivity {
             }
         });
 
-    }
 
+    }
 
     public void TampilTanggal(){
         DatePickerFragment datePickerFragment = new DatePickerFragment();
