@@ -37,5 +37,26 @@
     <string name="poli">Poli</string>
     <string name="dokter">Dokter</string>
 
+    <string-array name="nama_dokter">
+        <item>Dr. John Smith</item>
+        <item>Dr. Samantha Grey</item>
+        <item>Dr. Anne</item>
+        <item>Dr. Sarah</item>
+    </string-array>
+
+    <string-array name="spesialis_dokter">
+        <item>Spesialis Penyakit Dalam</item>
+        <item>Spesialis Anak</item>
+        <item>Spesialis Saraf</item>
+        <item>Spesialis Kandungan</item>
+    </string-array>
+
+    <string-array name="jam_dokter">
+        <item>09.30 AM - 11.30 AM</item>
+        <item>08.30 AM - 10.00 AM</item>
+        <item>13.00 AM - 14.30 AM</item>
+        <item>14.30 AM - 15.20 AM</item>
+    </string-array>
+
 
 </resources>

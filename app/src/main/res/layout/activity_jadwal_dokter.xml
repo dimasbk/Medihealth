@@ -47,7 +47,7 @@
         android:paddingStart="15dp" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView1"
+        android:id="@+id/recyclerViewDokter"
         android:layout_below="@id/search"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
