@@ -16,13 +16,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class SignUpActivity extends AppCompatActivity {
-    private EditText regis_email, regis_pass, regis_nama, tgl_lahir;
+    private EditText regis_email, regis_pass, regis_nama;
     private RadioGroup rg_regis;
     private RadioButton rb1, rb2, rb;
     private CheckBox termsandcond;
     private Button sign_up, btn_date;
-    private TextView tv_date;
-    public String date;
+    private TextView tv_date, tgl_lahir;
+    public String date = "";
     DBHelper dbHelper;
 
     @Override
@@ -32,7 +32,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         dbHelper = new DBHelper(this);
         regis_email = findViewById(R.id.email);
-//        tgl_lahir = findViewById(R.id.editTextDate);
+        tgl_lahir = findViewById(R.id.textView5);
         regis_pass = findViewById(R.id.password);
         regis_nama =  findViewById(R.id.nama);
         rg_regis = findViewById(R.id.rg);
@@ -55,6 +55,7 @@ public class SignUpActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String email = regis_email.getText().toString();
                 String pass =  regis_pass.getText().toString();
+                int lenght = regis_pass.length();
                 String lahir = date;
                 String nama = regis_nama.getText().toString();
                 int idradio = rg_regis.getCheckedRadioButtonId();
@@ -62,11 +63,11 @@ public class SignUpActivity extends AppCompatActivity {
                 String jk = rb.getText().toString();
                 if(email.equals("")){
                     regis_email.setError("Masukkan Email");
-                }else if(pass.equals("")) {
+                }else if(pass.equals("") || regis_pass.getText().toString().length()<=7) {
                     regis_pass.setError("Masukkan Password");
                 }else if(nama.equals("")) {
                     regis_nama.setError("Masukkan Nama");
-//                }else if(lahir.equals("")) {
+                }else if(lahir.equals("")) {
 //                    tgl_lahir.setError("Masukkan Tanggal Lahir");
                 }else if(idradio==-1){
                     Toast.makeText(SignUpActivity.this, "Pilih Salah Satu Jenis Kelamin", Toast.LENGTH_SHORT).show();
@@ -86,6 +87,7 @@ public class SignUpActivity extends AppCompatActivity {
             Toast.makeText(SignUpActivity.this, "Data Telah Masuk", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
             startActivity(intent);
+            finish();
         }else {
             Toast.makeText(SignUpActivity.this, "Data gagal Masuk", Toast.LENGTH_SHORT).show();
         }

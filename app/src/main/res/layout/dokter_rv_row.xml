@@ -6,6 +6,7 @@
     android:layout_width="350dp"
     android:layout_height="wrap_content"
     android:layout_marginLeft="25dp"
+    app:cardCornerRadius="4dp"
     >
 
     <androidx.cardview.widget.CardView
@@ -26,6 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TextView"
+                android:textSize="20sp"
                 android:layout_marginTop="10dp"
                 android:textStyle="bold"/>
 
