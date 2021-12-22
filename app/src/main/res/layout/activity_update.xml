@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/logo"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Detail Pemesanan Barang"
+            android:textSize="30sp"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:layout_marginTop="5dp"/>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:background="@drawable/bg_gradient"
+            android:layout_width="match_parent"
+            android:layout_height="1000dp"
+            android:orientation="vertical"
+            android:layout_marginHorizontal="0dp"
+            android:layout_marginTop="0dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama Barang"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="40dp"/>
+
+            <EditText
+                android:id="@+id/etNama"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:inputType="textPersonName"
+                android:textSize="18sp"
+                android:layout_weight="8"
+                android:layout_gravity="center"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:background="@drawable/bg_form"
+                android:hint="Nama Barang"
+                android:layout_marginLeft="35dp"
+                android:layout_marginRight="35dp"
+                android:paddingStart="10dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama Penerima"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="40dp"/>
+
+            <EditText
+                android:id="@+id/etNamaPenerima"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:inputType="textPersonName"
+                android:textSize="18sp"
+                android:layout_weight="8"
+                android:layout_gravity="center"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:background="@drawable/bg_form"
+                android:hint="Nama Penerima"
+                android:layout_marginLeft="35dp"
+                android:layout_marginRight="35dp"
+                android:paddingStart="10dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dropshiper"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="40dp"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="35dp"
+                android:layout_marginRight="35dp">
+
+                <CheckBox
+                    android:id="@+id/cBDrop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/white"
+                    android:textStyle="bold"
+                    android:text="Dropshiper" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvJumlah"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/seekBar"
+                android:layout_below="@+id/seekBar"
+                android:text="Jumlah"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="40dp"/>
+
+            <SeekBar
+                android:id="@+id/seekBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="35dp"
+                android:layout_marginRight="35dp"
+                android:min="0"
+                android:max="10"
+                android:indeterminate="false"
+                android:progress="0"/>
+
+            <TextView
+                android:id="@+id/tvDaerah"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Daerah"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="40dp"/>
+
+            <RadioGroup
+                android:id="@+id/rgJawaban1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="35dp"
+                android:layout_marginRight="35dp">
+
+                <RadioButton
+                    android:id="@+id/rbJABODETABEK"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="JABODETABEK"
+                    android:textStyle="bold"
+                    android:buttonTint="@color/white"
+                    android:textColor="@color/white"/>
+
+                <RadioButton
+                    android:id="@+id/rbLuarJABODETABEK"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Luar JABODETABEK"
+                    android:textStyle="bold"
+                    android:buttonTint="@color/white"
+                    android:textColor="@color/white" />
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/btUpdate"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Update"
+                android:textColor="#fff"
+                android:background="@drawable/button"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="35dp"
+                android:layout_marginRight="35dp"
+                android:layout_marginBottom="20dp"/>
+
+            <Button
+                android:id="@+id/btDelete"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Delete"
+                android:textColor="#ff0000"
+                android:background="@drawable/button"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="35dp"
+                android:layout_marginRight="35dp"
+                android:layout_marginBottom="20dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

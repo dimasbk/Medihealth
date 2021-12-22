@@ -21,4 +21,9 @@
     <color name="hijau">#098877</color>
     <color name="kuning">#eaaa00</color>
 
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="red">#E94252</color>
+
 </resources>

@@ -1,15 +1,29 @@
 package com.example.medihealth;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -17,6 +31,15 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
  * create an instance of this fragment.
  */
 public class ReservasiFragment extends Fragment {
+    RecyclerView recyclerView;
+    FloatingActionButton add_button;
+    ImageView empty_imageview;
+    TextView no_data;
+    LinearLayoutManager layoutManager;
+
+    DBHelper myDB;
+    ArrayList<String> id_rsv, poli_rsv, dokter_rsv, asuransi_rsv, tglrsv_rsv;
+    DBAdapter DBadapter;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -64,16 +87,100 @@ public class ReservasiFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_reservasi, container, false);
 
-        FloatingActionButton add_reservasi;
-        add_reservasi = view.findViewById(R.id.floatingActionButtonreservasi);
-        add_reservasi.setOnClickListener(new View.OnClickListener() {
+//        myDB = new DBHelper(getContext());
+//        id_rsv = new ArrayList<>();
+//        poli_rsv = new ArrayList<>();
+//        dokter_rsv = new ArrayList<>();
+//        asuransi_rsv = new ArrayList<>();
+//        tglrsv_rsv = new ArrayList<>();
+
+//        FloatingActionButton add_reservasi;
+//        add_reservasi = view.findViewById(R.id.floatingActionButtonreservasi);
+//        add_reservasi.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent med = new Intent(getActivity(), ReservasiActivity.class);
+//                startActivity(med);
+//            }
+//        });
+
+//        storeDataInArrays();
+
+//        Collections.reverse(id_rsv);
+//        Collections.reverse(poli_rsv);
+//        Collections.reverse(dokter_rsv);
+//        Collections.reverse(asuransi_rsv);
+//        Collections.reverse(tglrsv_rsv);
+
+        recyclerView = view.findViewById(R.id.recyclerView);
+        add_button = view.findViewById(R.id.add_button);
+        empty_imageview = view.findViewById(R.id.empty_imageview);
+        no_data = view.findViewById(R.id.no_data);
+        add_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent med = new Intent(getActivity(), ReservasiActivity.class);
-                startActivity(med);
+                Intent intent = new Intent(getActivity(), ReservasiActivity.class);
+                startActivity(intent);
             }
         });
 
+
+
+//        DBadapter = new DBAdapter(getContext(), id_rsv, poli_rsv, dokter_rsv,
+//                asuransi_rsv, tglrsv_rsv);
+//        layoutManager = new LinearLayoutManager(view.getContext());
+//        recyclerView = view.findViewById(R.id.recyclerView);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+//        recyclerView.setAdapter(DBadapter);
+
+
         return view;
     }
+
+//    public void startActivityForResult (int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if (requestCode == 1234 && resultCode == 1) {
+//            // do your things
+////            attach();
+////            ReservasiFragment = new ReservasiFragment();
+////            ft.beginTransaction(ReservasiFragment)
+////                    .attach()
+////                    .add(R.id.container, ReservasiFragment)
+////                    .commit();
+//        }
+//    }
+
+//    @Override
+//    protected void onActivityForResult(Intent intent, int requestCode) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if(requestCode == 1){
+//            recreate();
+//        }
+//    }
+
+    void storeDataInArrays(){
+        Cursor cursor = myDB.readReservasiData();
+        if(cursor.getCount() == 0){
+            empty_imageview.setVisibility(View.VISIBLE);
+            no_data.setVisibility(View.VISIBLE);
+        }else{
+            while (cursor.moveToNext()){
+                id_rsv.add(cursor.getString(0));
+                poli_rsv.add(cursor.getString(1));
+                dokter_rsv.add(cursor.getString(2));
+                asuransi_rsv.add(cursor.getString(3));
+                tglrsv_rsv.add(cursor.getString(4));
+            }
+            empty_imageview.setVisibility(View.GONE);
+            no_data.setVisibility(View.GONE);
+        }
+    }
+
+
+//    @Override
+//    public void onResume() {
+//        super.onResume();
+//        DBadapter.notifyDataSetChanged();
+//    }
+
 }

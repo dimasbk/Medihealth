@@ -16,6 +16,7 @@
             android:name=".SignUpActivity"
             android:exported="false" />
         <activity android:name=".MenuActivity" />
+        <activity android:name=".UpdateActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".LoginActivity" />
         <activity

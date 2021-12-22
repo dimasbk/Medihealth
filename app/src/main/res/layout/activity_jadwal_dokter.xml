@@ -48,7 +48,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewDokter"
-        android:layout_below="@id/search"
+        android:layout_below="@id/tgl_lahir"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout_editor_absoluteX="100dp"
