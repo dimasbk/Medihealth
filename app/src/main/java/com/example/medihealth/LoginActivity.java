@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
+    SQLiteDatabase mydb;
     private TextView tv_signup;
     private EditText login_email, login_pass;
     private Button btn_login;
@@ -57,9 +59,13 @@ public class LoginActivity extends AppCompatActivity {
 //                    email = getText().toString.trim(setDataMail);
                     setDataPass.putString("SESSION_pass", password);
                     setDataPass.apply();
+                    String id = dbHandler.readUserData(email);
+                    setDataId.putString("SESSION_id", id);
+                    setDataId.commit();
                     loss = 1;
 
 //                    dbHandler.readUserData(email);
+
 
                     Toast.makeText(LoginActivity.this, "Berhasil Login", Toast.LENGTH_SHORT).show();
                     Intent loggedin = new Intent(getApplicationContext(), SplashScreenActivity.class);

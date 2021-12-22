@@ -2,7 +2,6 @@ package com.example.medihealth;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -59,15 +58,19 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
-    public Cursor readUserData(String email){
-        String query = "SELECT * FROM " + table_user + "WHERE" + row_email + "=" + email ;
-        SQLiteDatabase db = this.getReadableDatabase();
+    public String readUserData(String email){
+        SQLiteDatabase DB = this.getReadableDatabase();
+        String [] columns = {row_id_user};
+        String selections = row_email + "=?";
+        String [] selectionArgs = {email};
 
-        Cursor cursor = null;
-        if(db != null){
-            cursor = db.rawQuery(query, null);
+        Cursor cursor = DB.query(table_user, columns, selections, selectionArgs, null, null, null);
+        if (cursor != null) {
+            cursor.moveToFirst();
         }
-        return cursor;
+        String id = cursor.getString(0);
+        return id;
+
     }
 
     public boolean checkUser(String email, String password){
@@ -83,6 +86,58 @@ public class DBHelper extends SQLiteOpenHelper {
         }else{
             return false;
         }
+    }
+
+    Cursor readEmailProfil(String id){
+        SQLiteDatabase DB = this.getReadableDatabase();
+        String [] columns = {row_email};
+        String selections = row_id_user + "=?";
+        String [] selectionArgs = {id};
+
+        Cursor cursor = DB.query(table_user, columns, selections, selectionArgs, null, null, null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+        return cursor;
+    }
+
+    Cursor readNamaProfil(String id){
+        SQLiteDatabase DB = this.getReadableDatabase();
+        String [] columns = {row_nama_user};
+        String selections = row_id_user + "=?";
+        String [] selectionArgs = {id};
+
+        Cursor cursor = DB.query(table_user, columns, selections, selectionArgs, null, null, null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+        return cursor;
+    }
+
+    Cursor readTglProfil(String id){
+        SQLiteDatabase DB = this.getReadableDatabase();
+        String [] columns = {row_lahir};
+        String selections = row_id_user + "=?";
+        String [] selectionArgs = {id};
+
+        Cursor cursor = DB.query(table_user, columns, selections, selectionArgs, null, null, null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+        return cursor;
+    }
+
+    Cursor readJkProfil(String id){
+        SQLiteDatabase DB = this.getReadableDatabase();
+        String [] columns = {row_jk};
+        String selections = row_id_user + "=?";
+        String [] selectionArgs = {id};
+
+        Cursor cursor = DB.query(table_user, columns, selections, selectionArgs, null, null, null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+        return cursor;
     }
 
 

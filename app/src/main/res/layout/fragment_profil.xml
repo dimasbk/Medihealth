@@ -137,7 +137,7 @@
                             android:id="@+id/tv_id_label_umur"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Umur"
+                            android:text="Tanggal Lahir"
                             android:fontFamily="@font/poppins_regular"
                             android:textColor="@color/Abu_abu_gelap"
                             android:textSize="35px"  />
@@ -149,7 +149,7 @@
                             android:layout_marginTop="15dp"
                             android:layout_marginBottom="10dp"
                             android:fontFamily="@font/poppins_semi_bold"
-                            android:text="Umur"
+                            android:text="Tanggal Lahir"
                             android:textColor="@color/hitam"
                             android:textSize="42px" />
 

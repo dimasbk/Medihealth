@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -39,10 +40,11 @@ public class ProfilFragment extends Fragment implements View.OnClickListener {
     View mView;
     public Button button_logout;
     DBHelper dbHelper;
+    TextView nama_depan, nama_belakang, email, tgl_lahir, jenis_kelamin;
 
     String u_id, u_nama, u_email, u_password, u_tgl, u_jk;
 
-    SharedPreferences getDataMail, getDataPass;
+    SharedPreferences getDataMail, getDataPass, getDataId;
 
 //    SharedPreferences getDataId = getActivity().getSharedPreferences("SESSION_id", MODE_PRIVATE);
 
@@ -90,6 +92,45 @@ public class ProfilFragment extends Fragment implements View.OnClickListener {
 
         getDataMail = getActivity().getSharedPreferences("SESSION_mail", MODE_PRIVATE);
         getDataPass = getActivity().getSharedPreferences("SESSION_pass", MODE_PRIVATE);
+        getDataId = getActivity().getSharedPreferences("SESSION_id", MODE_PRIVATE);
+
+        nama_depan = mView.findViewById(R.id.tv_id_nama_depan_user);
+        nama_belakang = mView.findViewById(R.id.tv_id_nama_belakang_user);
+        email = mView.findViewById(R.id.tv_id_input_view_email);
+        tgl_lahir = mView.findViewById(R.id.tv_id_input_view_umur);
+        jenis_kelamin = mView.findViewById(R.id.tv_id_input_view_jenis_kelamin);
+        String id = getDataId.getString("SESSION_id","");
+
+        Cursor curEmail = dbHelper.readEmailProfil(id);
+        Cursor curNama = dbHelper.readNamaProfil(id);
+        Cursor curLahir = dbHelper.readTglProfil(id);
+        Cursor curJk = dbHelper.readJkProfil(id);
+
+        u_nama = curNama.getString(0);
+
+        String lastName = "";
+        String firstName= "";
+        if(u_nama.split("\\w+").length>1){
+
+            lastName = u_nama.substring(u_nama.lastIndexOf(" ")+1);
+            firstName = u_nama.substring(0, u_nama.lastIndexOf(' '));
+        }
+        else{
+            firstName = u_nama;
+            lastName = "";
+        }
+
+        u_email = curEmail.getString(0);
+        u_tgl = curLahir.getString(0);
+        u_jk = curJk.getString(0);
+
+        nama_depan.setText(firstName);
+        nama_belakang.setText(lastName);
+        email.setText(u_email);
+        tgl_lahir.setText(u_tgl);
+        jenis_kelamin.setText(u_jk);
+
+
 
         button_logout = (Button)mView.findViewById(R.id.btn_logout);
         button_logout.setOnClickListener(this);
@@ -125,6 +166,7 @@ public class ProfilFragment extends Fragment implements View.OnClickListener {
                     public void onClick(DialogInterface dialog,int id) {
                         getDataMail.edit().clear().commit();
                         getDataPass.edit().clear().commit();
+                        getDataId.edit().clear().commit();
                         Intent intent = new Intent(getActivity(), LoginActivity.class);
                         startActivity(intent);
                         getActivity().finish();
