@@ -17,6 +17,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 
 import static android.content.Context.MODE_PRIVATE;
@@ -39,6 +41,7 @@ public class ProfilFragment extends Fragment implements View.OnClickListener {
 
     View mView;
     public Button button_logout;
+    FloatingActionButton button_edit;
     DBHelper dbHelper;
     TextView nama_depan, nama_belakang, email, tgl_lahir, jenis_kelamin;
 
@@ -133,7 +136,17 @@ public class ProfilFragment extends Fragment implements View.OnClickListener {
 
 
         button_logout = (Button)mView.findViewById(R.id.btn_logout);
+        button_edit = mView.findViewById(R.id.btn_edit);
+
         button_logout.setOnClickListener(this);
+        button_edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), EditActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
 //        dataAkun();
 
@@ -145,6 +158,11 @@ public class ProfilFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_logout:
+                showDialogLogout();
+                Toast.makeText(getActivity(), "Long pressing", Toast.LENGTH_SHORT).show();
+                //do your stuff
+                break;
+            case R.id.btn_edit:
                 showDialogLogout();
                 Toast.makeText(getActivity(), "Long pressing", Toast.LENGTH_SHORT).show();
                 //do your stuff

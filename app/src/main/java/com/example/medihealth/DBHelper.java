@@ -72,6 +72,25 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
 
+    public boolean updateDataProfil(String row_id, String nama, String email, String pass, String lahir, String jk){
+        SQLiteDatabase DB = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(DBHelper.row_nama_user, nama);
+        values.put(DBHelper.row_email, email);
+        values.put(DBHelper.row_password, pass);
+        values.put(DBHelper.row_lahir, lahir);
+        values.put(DBHelper.row_jk, jk);
+        long result = DB.update(table_user, values,"id=?", new String[]{row_id});
+        if (result == -1) {
+            Toast.makeText(context, "Failed to Update", Toast.LENGTH_SHORT).show();
+            return false;
+        } else {
+            Toast.makeText(context, "Updated Successfully!", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+    }
+
+
     public boolean insertDataReservasi(String poli, String dokter, String asuransi, String tanggalrsv){
         SQLiteDatabase DB = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -212,6 +231,20 @@ public class DBHelper extends SQLiteOpenHelper {
         }
         return cursor;
     }
+
+    Cursor readPassProfil(String id){
+        SQLiteDatabase DB = this.getReadableDatabase();
+        String [] columns = {row_password};
+        String selections = row_id_user + "=?";
+        String [] selectionArgs = {id};
+
+        Cursor cursor = DB.query(table_user, columns, selections, selectionArgs, null, null, null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+        return cursor;
+    }
+
 
 
 }

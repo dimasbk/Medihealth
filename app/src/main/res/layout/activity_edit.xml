@@ -29,7 +29,7 @@
                     android:orientation="vertical"
                     android:layout_weight="2">
 
-                    <TextView
+                    <EditText
                         android:id="@+id/tv_id_nama_depan_user"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
                         android:textSize="72px"
                         android:fontFamily="@font/poppins_bold"/>
 
-                    <TextView
+                    <EditText
                         android:id="@+id/tv_id_nama_belakang_user"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -53,20 +53,20 @@
                         android:textColor="@color/Abu_abu_gelap"
                         android:textSize="35px"/>
 
+                    <TextView
+                        android:id="@+id/tv_id_nama_belakang_user"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:layout_marginLeft="66px"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="26px"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textColor="@color/Abu_abu_gelap"
+                        android:textSize="35px"/>
+
                 </LinearLayout>
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/btn_edit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginRight="82px"
-                    android:layout_weight="2"
-                    android:backgroundTint="@color/biru"
-                    android:clickable="true"
-                    app:fabSize="normal"
-                    app:srcCompat="@drawable/ic_baseline_edit_24"
-                    app:tint="@color/white" />
 
             </LinearLayout>
 
@@ -115,7 +115,7 @@
                             android:textColor="@color/Abu_abu_gelap"
                             android:textSize="35px"  />
 
-                        <TextView
+                        <EditText
                             android:id="@+id/tv_id_input_view_email"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -126,12 +126,6 @@
                             android:fontFamily="@font/poppins_semi_bold"
                             android:textSize="42px" />
 
-                        <View
-                            android:layout_width="wrap_content"
-                            android:layout_height="2dp"
-                            android:layout_marginTop="2dp"
-                            android:background="@color/Abu_abu_stroke"
-                            android:layout_marginBottom="20dp"/>
 
                         <TextView
                             android:id="@+id/tv_id_label_umur"
@@ -142,23 +136,18 @@
                             android:textColor="@color/Abu_abu_gelap"
                             android:textSize="35px"  />
 
-                        <TextView
-                            android:id="@+id/tv_id_input_view_umur"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="15dp"
-                            android:layout_marginBottom="10dp"
-                            android:fontFamily="@font/poppins_semi_bold"
-                            android:text="Tanggal Lahir"
-                            android:textColor="@color/hitam"
-                            android:textSize="42px" />
-
-                        <View
+                        <Button
+                            android:id="@+id/btn_id_input_view_umur"
                             android:layout_width="wrap_content"
-                            android:layout_height="2dp"
-                            android:layout_marginTop="2dp"
-                            android:background="@color/Abu_abu_stroke"
-                            android:layout_marginBottom="10dp"/>
+                            android:layout_height="50dp"
+                            android:layout_below="@+id/textView5"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="24dp"
+                            android:ems="10"
+                            android:text="pilih tanggal"/>
 
                         <TextView
                             android:id="@+id/tv_id_label_jenis_kelamin"
@@ -169,31 +158,45 @@
                             android:textColor="@color/Abu_abu_gelap"
                             android:textSize="35px"  />
 
-                        <TextView
-                            android:id="@+id/tv_id_input_view_jenis_kelamin"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="15dp"
-                            android:layout_marginBottom="10dp"
-                            android:fontFamily="@font/poppins_semi_bold"
-                            android:text="Jenis Kelamin"
-                            android:textColor="@color/hitam"
-                            android:textSize="42px" />
-
-                        <View
+                        <RadioGroup
                             android:layout_width="wrap_content"
-                            android:layout_height="2dp"
-                            android:layout_marginTop="2dp"
-                            android:background="@color/Abu_abu_stroke"
-                            android:layout_marginBottom="10dp"/>
+                            android:layout_height="wrap_content"
+                            android:id="@+id/rgJk"
+                            android:layout_below="@+id/textView6">
+
+                            <RadioButton
+                                android:id="@+id/rbL"
+                                android:layout_width="121dp"
+                                android:layout_height="37dp"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginStart="0dp"
+                                android:layout_marginTop="11dp"
+                                android:layout_marginEnd="280dp"
+                                android:text="Laki - laki" />
+
+                            <RadioButton
+                                android:id="@+id/rbP"
+                                android:layout_width="136dp"
+                                android:layout_height="33dp"
+                                android:layout_below="@+id/checkBox"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginStart="0dp"
+                                android:layout_marginTop="2dp"
+                                android:layout_marginEnd="267dp"
+                                android:text="Perempuan" />
+
+                        </RadioGroup>
+
 
                         <Button
-                            android:id="@+id/btn_logout"
+                            android:id="@+id/btn_editUser"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/biru"
                             android:fontFamily="@font/poppins_semi_bold"
-                            android:text="Logout"
+                            android:text="Edit"
                             android:textAllCaps="false"
                             android:textColor="@color/white" />
 
