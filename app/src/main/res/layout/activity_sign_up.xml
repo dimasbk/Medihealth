@@ -31,7 +31,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="24dp"
-                    android:layout_marginTop="70dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginEnd="150dp"
                     android:text="Register to Medihealth"
                     android:textColor="#07234B"
@@ -123,18 +123,18 @@
 
                 <TextView
                     android:id="@+id/textView5"
-                    android:layout_width="102dp"
+                    android:layout_width="144dp"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/textView4"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="23dp"
-                    android:layout_marginEnd="269dp"
+                    android:layout_marginEnd="243dp"
                     android:text="Tanggal Lahir" />
 
-                <EditText
-                    android:id="@+id/editTextDate"
+                <Button
+                    android:id="@+id/tgl_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_below="@+id/textView5"
@@ -143,15 +143,14 @@
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="24dp"
-                    android:background="@drawable/kolom"
                     android:ems="10"
-                    android:inputType="date" />
+                    android:text="pilih tanggal"/>
 
                 <TextView
                     android:id="@+id/textView6"
                     android:layout_width="195dp"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/editTextDate"
+                    android:layout_below="@+id/tgl_btn"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="24dp"
@@ -164,9 +163,10 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/rg"
                     android:layout_below="@+id/textView6">
+
                     <RadioButton
                         android:id="@+id/rb1"
-                        android:layout_width="wrap_content"
+                        android:layout_width="121dp"
                         android:layout_height="37dp"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentEnd="true"
@@ -177,7 +177,7 @@
 
                     <RadioButton
                         android:id="@+id/rb2"
-                        android:layout_width="wrap_content"
+                        android:layout_width="136dp"
                         android:layout_height="33dp"
                         android:layout_below="@+id/checkBox"
                         android:layout_alignParentStart="true"

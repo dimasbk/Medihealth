@@ -8,9 +8,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class SignUpActivity extends AppCompatActivity {
@@ -18,7 +20,9 @@ public class SignUpActivity extends AppCompatActivity {
     private RadioGroup rg_regis;
     private RadioButton rb1, rb2, rb;
     private CheckBox termsandcond;
-    private Button sign_up;
+    private Button sign_up, btn_date;
+    private TextView tv_date;
+    public String date;
     DBHelper dbHelper;
 
     @Override
@@ -28,7 +32,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         dbHelper = new DBHelper(this);
         regis_email = findViewById(R.id.email);
-        tgl_lahir = findViewById(R.id.editTextDate);
+//        tgl_lahir = findViewById(R.id.editTextDate);
         regis_pass = findViewById(R.id.password);
         regis_nama =  findViewById(R.id.nama);
         rg_regis = findViewById(R.id.rg);
@@ -36,13 +40,22 @@ public class SignUpActivity extends AppCompatActivity {
         rb2 = findViewById(R.id.rb2);
         termsandcond = findViewById(R.id.termsandcond);
         sign_up = findViewById(R.id.btn_regis);
+        btn_date = findViewById(R.id.tgl_btn);
+
+
+        btn_date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TampilTanggal();
+            }
+        });
 
         sign_up.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String email = regis_email.getText().toString();
                 String pass =  regis_pass.getText().toString();
-                String lahir = tgl_lahir.getText().toString();
+                String lahir = date;
                 String nama = regis_nama.getText().toString();
                 int idradio = rg_regis.getCheckedRadioButtonId();
                 rb = findViewById(idradio);
@@ -53,8 +66,8 @@ public class SignUpActivity extends AppCompatActivity {
                     regis_pass.setError("Masukkan Password");
                 }else if(nama.equals("")) {
                     regis_nama.setError("Masukkan Nama");
-                }else if(lahir.equals("")) {
-                    tgl_lahir.setError("Masukkan Tanggal Lahir");
+//                }else if(lahir.equals("")) {
+//                    tgl_lahir.setError("Masukkan Tanggal Lahir");
                 }else if(idradio==-1){
                     Toast.makeText(SignUpActivity.this, "Pilih Salah Satu Jenis Kelamin", Toast.LENGTH_SHORT).show();
                 }else if(!termsandcond.isChecked()){
@@ -77,5 +90,23 @@ public class SignUpActivity extends AppCompatActivity {
             Toast.makeText(SignUpActivity.this, "Data gagal Masuk", Toast.LENGTH_SHORT).show();
         }
 
+    }
+
+
+    public void TampilTanggal(){
+        DatePickerFragment datePickerFragment = new DatePickerFragment();
+        datePickerFragment.show(getSupportFragmentManager(), "data");
+        datePickerFragment.setOnDateClickListener(new DatePickerFragment.onDateClickListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+                String tahun = ""+datePicker.getYear();
+                String bulan = ""+(datePicker.getMonth()+1);
+                String hari = ""+datePicker.getDayOfMonth();
+                String text = "Tanggal : "+hari+" - "+bulan+" - "+tahun;
+                date = ""+hari+"/"+bulan+"/"+tahun;
+                Toast.makeText(SignUpActivity.this, date, Toast.LENGTH_SHORT).show();
+                btn_date.setText(text);
+            }
+        });
     }
 }
