@@ -104,17 +104,6 @@
                 android:text="Log In"
                 app:backgroundTint="#1B50A0" />
 
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/login_button"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="20dp"
-                android:gravity="center"
-                android:text="Forgot your password?"
-                android:textColor="#07234B" />
         </RelativeLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

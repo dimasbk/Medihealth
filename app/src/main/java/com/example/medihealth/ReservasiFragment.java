@@ -2,6 +2,7 @@ package com.example.medihealth;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 
@@ -26,6 +27,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import static android.content.Context.MODE_PRIVATE;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link ReservasiFragment#newInstance} factory method to
@@ -42,6 +45,9 @@ public class ReservasiFragment extends Fragment {
     ArrayList<String> id_rsv, poli_rsv, dokter_rsv, asuransi_rsv, tglrsv_rsv;
     DBAdapter DBadapter;
     MenuActivity activity = (MenuActivity) getActivity();
+    String u_id;
+
+    SharedPreferences getDataId;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -95,6 +101,10 @@ public class ReservasiFragment extends Fragment {
         dokter_rsv = new ArrayList<>();
         asuransi_rsv = new ArrayList<>();
         tglrsv_rsv = new ArrayList<>();
+        getDataId = getActivity().getSharedPreferences("SESSION_id", MODE_PRIVATE);
+        u_id = getDataId.getString("SESSION_id","");
+
+
 
 //        FloatingActionButton add_reservasi;
 //        add_reservasi = view.findViewById(R.id.floatingActionButtonreservasi);
@@ -106,7 +116,7 @@ public class ReservasiFragment extends Fragment {
 //            }
 //        });
 
-        storeDataInArrays();
+        storeDataInArrays(u_id);
 
 
 //        Collections.reverse(id_rsv);
@@ -165,8 +175,8 @@ public class ReservasiFragment extends Fragment {
 //        }
 //    }
 
-    void storeDataInArrays(){
-        Cursor cursor = myDB.readReservasiData();
+    void storeDataInArrays(String u_id){
+        Cursor cursor = myDB.readReservasiData(u_id);
         if(cursor.getCount() == 0){
 //            Toast.makeText(activity,"Tidak Ada Reservasi!",Toast.LENGTH_SHORT).show();
         }else{

@@ -126,13 +126,14 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
 
-    public Cursor readReservasiData(){
-        String query = "SELECT * FROM " + table_reservasi +"WHERE";
+    public Cursor readReservasiData(String user_id){
+        String query = "SELECT * FROM tb_reservasi WHERE user_id = ?";
+        String [] selectionArgs = {user_id};
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = null;
         if(db != null){
-            cursor = db.rawQuery(query, null);
+            cursor = db.rawQuery(query, selectionArgs);
         }
         return cursor;
     }
