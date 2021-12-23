@@ -9,18 +9,22 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.medihealth.model.Model_tb_dokter;
+
+import java.util.ArrayList;
+
 public class DokterAdapter extends RecyclerView.Adapter<DokterAdapter.MyViewHolder> {
 
+    private ArrayList<Model_tb_dokter> mDokterList;
     String namaAdapter[], spesialisAdapter[], jamAdapter[];
     Context context;
 
-    public  DokterAdapter(Context ct, String nama[], String spesialis[], String jam[]){
+    private DBHelper myDB;
+    public  DokterAdapter(Context context, ArrayList<Model_tb_dokter> datarDokterList, DBHelper myDB){
 
-        context = ct;
-        namaAdapter = nama;
-        spesialisAdapter = spesialis;
-        jamAdapter = jam;
-
+        this.context = context;
+        this.mDokterList = datarDokterList;
+        this.myDB = myDB;
     }
 
     @NonNull
@@ -36,15 +40,15 @@ public class DokterAdapter extends RecyclerView.Adapter<DokterAdapter.MyViewHold
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.text_nama.setText(namaAdapter[position]);
-        holder.text_spesialis.setText(spesialisAdapter[position]);
-        holder.text_jam.setText(jamAdapter[position]);
+        holder.text_nama.setText(mDokterList.get(position).getNama_dokter());
+        holder.text_spesialis.setText(mDokterList.get(position).getSpesialis());
+        holder.text_jam.setText(mDokterList.get(position).getJam());
 
     }
 
     @Override
     public int getItemCount() {
-        return namaAdapter.length;
+        return mDokterList.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
@@ -57,5 +61,9 @@ public class DokterAdapter extends RecyclerView.Adapter<DokterAdapter.MyViewHold
             text_spesialis = itemView.findViewById(R.id.spesialis_dokter);
             text_jam = itemView.findViewById(R.id.jam_dokter);
         }
+    }
+
+    public ArrayList<Model_tb_dokter> getmDokterList(){
+        return mDokterList;
     }
 }

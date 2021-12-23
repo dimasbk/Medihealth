@@ -9,6 +9,10 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import com.example.medihealth.model.Model_tb_dokter;
+
+import java.util.ArrayList;
+
 public class DBHelper extends SQLiteOpenHelper {
     public static final String db_name="db_medihealth";
     public static final String table_user="tb_user";
@@ -28,6 +32,11 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String row2_tanggalrsv="tanggalrsv";
     public static final String row2_id_user = "user_id";
 
+    public static final String table_dokter="tb_dokter";
+    public static final String row3_id="id_dokter";
+    public static final String row3_nama_dokter="nama_dokter";
+    public static final String row3_spesialis="spesialis";
+    public static final String row3_jam="jam";
     private Context context;
 
     private SQLiteDatabase db;
@@ -46,6 +55,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table " + table_user +" (id INTEGER PRIMARY KEY AUTOINCREMENT,nama_user TEXT,email TEXT,password TEXT, tgl_lahir TEXT, jenis_kelamin TEXT)");
         db.execSQL("create table " + table_reservasi +" (id_reservasi INTEGER PRIMARY KEY AUTOINCREMENT,poli TEXT,dokter TEXT,asuransi TEXT, tanggalrsv TEXT, user_id INTEGER)");
+        db.execSQL("create table " + table_dokter +" (id_dokter INTEGER PRIMARY KEY AUTOINCREMENT,nama_dokter TEXT,spesialis TEXT,jam TEXT)");
 
     }
 
@@ -53,7 +63,50 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL("DROP TABLE IF EXISTS "+ table_user);
         db.execSQL("DROP TABLE IF EXISTS "+ table_reservasi);
+        db.execSQL("DROP TABLE IF EXISTS "+ table_dokter);
         onCreate(db);
+    }
+
+    public ArrayList<Model_tb_dokter> getAllData_tb_dokter(){
+        int id;
+        String nama_dokter, spesialis, jam;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + table_dokter, null);
+        ArrayList<Model_tb_dokter> data = new ArrayList<Model_tb_dokter>();
+
+        if (cursor.moveToFirst()) {
+            do {
+//                id = cursor.getColumnIndex(row3_id);
+//                nama_dokter = cursor.getColumnIndex(row3_nama_dokter);
+//                spesialis = cursor.getColumnIndex(row3_spesialis);
+//                jam = cursor.getColumnIndex(row3_jam);
+                data.add(new Model_tb_dokter(
+                        cursor.getInt(cursor.getColumnIndex(row3_id))
+                        ,cursor.getString(cursor.getColumnIndex(row3_nama_dokter))
+                        ,cursor.getString(cursor.getColumnIndex(row3_spesialis))
+                        ,cursor.getString(cursor.getColumnIndex(row3_jam)))
+                );
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return data;
+    }
+
+    public void insertAllData(ArrayList<Model_tb_dokter> dokter){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.beginTransaction();
+        try {
+            ContentValues values = new ContentValues();
+            for (Model_tb_dokter dokterr : dokter) {
+                values.put(row3_nama_dokter, dokterr.getNama_dokter());
+                values.put(row3_spesialis, dokterr.getSpesialis());
+                values.put(row3_jam, dokterr.getJam());
+                db.insert(table_dokter, null, values);
+            }
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
     }
 
     public boolean insertDataUser(String nama, String email, String pass, String lahir, String jk){
