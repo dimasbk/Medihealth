@@ -45,7 +45,7 @@ public class ProfilFragment extends Fragment implements View.OnClickListener {
     DBHelper dbHelper;
     TextView nama_depan, nama_belakang, email, tgl_lahir, jenis_kelamin;
 
-    String u_id, u_nama, u_email, u_password, u_tgl, u_jk;
+    String u_id, u_nama, u_email, u_tgl, u_jk;
 
     SharedPreferences getDataMail, getDataPass, getDataId;
 
@@ -102,12 +102,12 @@ public class ProfilFragment extends Fragment implements View.OnClickListener {
         email = mView.findViewById(R.id.tv_id_input_view_email);
         tgl_lahir = mView.findViewById(R.id.tv_id_input_view_umur);
         jenis_kelamin = mView.findViewById(R.id.tv_id_input_view_jenis_kelamin);
-        String id = getDataId.getString("SESSION_id","");
+        u_id = getDataId.getString("SESSION_id","");
 
-        Cursor curEmail = dbHelper.readEmailProfil(id);
-        Cursor curNama = dbHelper.readNamaProfil(id);
-        Cursor curLahir = dbHelper.readTglProfil(id);
-        Cursor curJk = dbHelper.readJkProfil(id);
+        Cursor curEmail = dbHelper.readEmailProfil(u_id);
+        Cursor curNama = dbHelper.readNamaProfil(u_id);
+        Cursor curLahir = dbHelper.readTglProfil(u_id);
+        Cursor curJk = dbHelper.readJkProfil(u_id);
 
         u_nama = curNama.getString(0);
 

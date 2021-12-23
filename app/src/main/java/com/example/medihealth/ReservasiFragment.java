@@ -168,7 +168,7 @@ public class ReservasiFragment extends Fragment {
     void storeDataInArrays(){
         Cursor cursor = myDB.readReservasiData();
         if(cursor.getCount() == 0){
-            Toast.makeText(activity,"Tidak Ada Reservasi!",Toast.LENGTH_SHORT).show();
+//            Toast.makeText(activity,"Tidak Ada Reservasi!",Toast.LENGTH_SHORT).show();
         }else{
             while (cursor.moveToNext()){
                 id_rsv.add(cursor.getString(0));

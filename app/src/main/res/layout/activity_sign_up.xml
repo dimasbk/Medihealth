@@ -107,7 +107,7 @@
                     android:background="@drawable/kolom"
                     android:ems="10"
                     android:hint="Password"
-                    android:inputType="textPersonName"
+                    android:inputType="textPassword"
                     android:paddingStart="15dp" />
 
                 <TextView

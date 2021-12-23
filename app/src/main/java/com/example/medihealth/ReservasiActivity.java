@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Adapter;
@@ -30,7 +31,8 @@ public class ReservasiActivity extends AppCompatActivity{
     FloatingActionButton add_button;
     Button btn_date, btnSubmit;
     String date = "";
-    String asuransi, dokter, poli;
+    String asuransi, dokter, poli, id_user;
+    SharedPreferences getDataId;
 
     private DBHelper db = new DBHelper(this);
 
@@ -114,6 +116,8 @@ public class ReservasiActivity extends AppCompatActivity{
             public void onClick(View view) {
                 poli = txtPoli.getText().toString();
                 dokter = txtDokter.getText().toString();
+                getDataId = getApplicationContext().getSharedPreferences("SESSION_id", MODE_PRIVATE);
+                id_user = getDataId.getString("SESSION_id","");
 
                 if (rUmum.isChecked() || rJkn.isChecked()){
 
@@ -137,7 +141,7 @@ public class ReservasiActivity extends AppCompatActivity{
                 }
 
                 if(stat == true && statRadio == true) {
-                    showDialog(poli, dokter, asuransi, date);
+                    showDialog(poli, dokter, asuransi, date, id_user);
                     stat = false;
                 }else {
                     Toast.makeText(getApplicationContext(), "Tolong lengkapi form", Toast.LENGTH_LONG).show();
@@ -148,7 +152,7 @@ public class ReservasiActivity extends AppCompatActivity{
     }
 
 
-    private void showDialog(String poli, String dokter, String asuransi, String date){
+    private void showDialog(String poli, String dokter, String asuransi, String date, String id_user){
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
                 this);
 
@@ -168,7 +172,8 @@ public class ReservasiActivity extends AppCompatActivity{
                         myDB.insertDataReservasi(poli.trim(),
                                 dokter.trim(),
                                 asuransi.trim(),
-                                date.trim());
+                                date.trim(),
+                                id_user.trim());
                         Intent intent = new Intent(ReservasiActivity.this, MenuActivity.class);
 //                        intent.putExtra("namaBarang", namaBarang);
 //                        intent.putExtra("namaPenerima", namaPenerima);

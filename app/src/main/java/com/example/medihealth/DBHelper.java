@@ -92,13 +92,14 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
 
-    public boolean insertDataReservasi(String poli, String dokter, String asuransi, String tanggalrsv){
+    public boolean insertDataReservasi(String poli, String dokter, String asuransi, String tanggalrsv, String user_id){
         SQLiteDatabase DB = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(DBHelper.row2_poli, poli);
         values.put(DBHelper.row2_dokter, dokter);
         values.put(DBHelper.row2_asuransi, asuransi);
         values.put(DBHelper.row2_tanggalrsv, tanggalrsv);
+        values.put(DBHelper.row2_id_user, user_id);
         long insert = DB.insert(table_reservasi,null,values);
         if (insert == -1) {
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
@@ -126,7 +127,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
     public Cursor readReservasiData(){
-        String query = "SELECT * FROM " + table_reservasi;
+        String query = "SELECT * FROM " + table_reservasi +"WHERE";
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = null;
