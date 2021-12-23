@@ -43,6 +43,7 @@ public class ProfilFragment extends Fragment implements View.OnClickListener {
     public Button button_logout;
     FloatingActionButton button_edit;
     DBHelper dbHelper;
+    DBAdapter dbAdapter;
     TextView nama_depan, nama_belakang, email, tgl_lahir, jenis_kelamin;
 
     String u_id, u_nama, u_email, u_tgl, u_jk;
@@ -92,6 +93,7 @@ public class ProfilFragment extends Fragment implements View.OnClickListener {
         mView = inflater.inflate(R.layout.fragment_profil, container, false);
 
         dbHelper = new DBHelper(getActivity());
+//        dbAdapter = new DBAdapter(getActivity());
 
         getDataMail = getActivity().getSharedPreferences("SESSION_mail", MODE_PRIVATE);
         getDataPass = getActivity().getSharedPreferences("SESSION_pass", MODE_PRIVATE);
@@ -149,7 +151,7 @@ public class ProfilFragment extends Fragment implements View.OnClickListener {
 
 
 //        dataAkun();
-
+//        dbAdapter.notifyDataSetChanged();
         return mView;
     }
 
@@ -201,6 +203,11 @@ public class ProfilFragment extends Fragment implements View.OnClickListener {
         alertDialog.show();
     }
 
+//    @Override
+//    public void onResume() {
+//        super.onResume();
+//        dbAdapter.notifyDataSetChanged();
+//    }
 
 //    void dataAkun(){
 //        Cursor cursor = dbHelper.readUserData();

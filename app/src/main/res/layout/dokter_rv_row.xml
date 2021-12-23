@@ -13,9 +13,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:foregroundGravity="center">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -44,6 +44,13 @@
                 android:layout_height="wrap_content"
                 android:text="TextView"
                 android:layout_marginBottom="20dp"/>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:layout_marginTop="2dp"
+                android:background="@color/Abu_abu_stroke"
+                android:layout_marginBottom="10dp"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
