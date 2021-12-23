@@ -119,11 +119,11 @@ public class ReservasiFragment extends Fragment {
         storeDataInArrays(u_id);
 
 
-//        Collections.reverse(id_rsv);
-//        Collections.reverse(poli_rsv);
-//        Collections.reverse(dokter_rsv);
-//        Collections.reverse(asuransi_rsv);
-//        Collections.reverse(tglrsv_rsv);
+        Collections.reverse(id_rsv);
+        Collections.reverse(poli_rsv);
+        Collections.reverse(dokter_rsv);
+        Collections.reverse(asuransi_rsv);
+        Collections.reverse(tglrsv_rsv);
 
         recyclerView = view.findViewById(R.id.recyclerView);
         add_button = view.findViewById(R.id.add_button);
@@ -166,6 +166,8 @@ public class ReservasiFragment extends Fragment {
 ////                    .commit();
 //        }
 //    }
+
+//    startActivityForResult(Intent intent, 0);
 
 //    @Override
 //    protected void onActivityForResult(Intent intent, int requestCode) {
