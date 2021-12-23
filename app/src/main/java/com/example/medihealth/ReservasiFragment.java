@@ -130,7 +130,7 @@ public class ReservasiFragment extends Fragment {
         empty_imageview = view.findViewById(R.id.empty_imageview);
         no_data = view.findViewById(R.id.no_data);
 
-        DBAdapter dbAdapter = new DBAdapter(getContext(), id_rsv, poli_rsv, dokter_rsv, asuransi_rsv, tglrsv_rsv);
+        DBAdapter dbAdapter = new DBAdapter(getActivity(), getContext(), id_rsv, poli_rsv, dokter_rsv, asuransi_rsv, tglrsv_rsv);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(dbAdapter);
         add_button.setOnClickListener(new View.OnClickListener() {

@@ -36,6 +36,8 @@
     <string name="pilih_cara_">Pilih Cara Bayar</string>
     <string name="poli">Poli</string>
     <string name="dokter">Dokter</string>
+    <string name="scan_qr_cod">Scan QR Code</string>
+    <string name="place_qr_co">Place qr code inside the frame to scan please\navoid shake to get result quickly</string>
 
     <string-array name="nama_dokter">
         <item>Dr. John Smith</item>

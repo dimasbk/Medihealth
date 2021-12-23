@@ -18,8 +18,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import com.example.medihealth.UpdateActivity;
-
 
 public class DBAdapter extends RecyclerView.Adapter<DBAdapter.MyViewHolder>  {
 
@@ -27,7 +25,9 @@ public class DBAdapter extends RecyclerView.Adapter<DBAdapter.MyViewHolder>  {
     private Activity activity;
     private ArrayList id_rsv, poli, dokter, asuransi, tglrsv;
 
-    public DBAdapter(Context context, ArrayList id_rsv, ArrayList poli, ArrayList dokter,
+
+
+    public DBAdapter(Activity activity, Context context, ArrayList id_rsv, ArrayList poli, ArrayList dokter,
                      ArrayList asuransi, ArrayList tglrsv){
         this.activity = activity;
         this.context = context;
@@ -60,7 +60,7 @@ public class DBAdapter extends RecyclerView.Adapter<DBAdapter.MyViewHolder>  {
         holder.rsvRowLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, UpdateActivity.class);
+                Intent intent = new Intent(context, DetailReservasiActivity.class);
                 intent.putExtra("id_rsv", String.valueOf(id_rsv.get(position)));
                 intent.putExtra("poli", String.valueOf(poli.get(position)));
                 intent.putExtra("dokter", String.valueOf(dokter.get(position)));
