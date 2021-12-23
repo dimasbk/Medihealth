@@ -26,6 +26,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String row2_dokter="dokter";
     public static final String row2_asuransi="asuransi";
     public static final String row2_tanggalrsv="tanggalrsv";
+    public static final String row2_id_user = "user_id";
 
     private Context context;
 
@@ -44,7 +45,7 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table " + table_user +" (id INTEGER PRIMARY KEY AUTOINCREMENT,nama_user TEXT,email TEXT,password TEXT, tgl_lahir TEXT, jenis_kelamin TEXT)");
-        db.execSQL("create table " + table_reservasi +" (id_reservasi INTEGER PRIMARY KEY AUTOINCREMENT,poli TEXT,dokter TEXT,asuransi TEXT, tanggalrsv TEXT)");
+        db.execSQL("create table " + table_reservasi +" (id_reservasi INTEGER PRIMARY KEY AUTOINCREMENT,poli TEXT,dokter TEXT,asuransi TEXT, tanggalrsv TEXT, user_id INTEGER)");
 
     }
 
