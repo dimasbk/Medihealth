@@ -10,23 +10,37 @@
     <ImageView
         android:id="@+id/gambar"
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_height="70dp"
         android:layout_marginTop="0dp"
         android:src="@drawable/logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <SearchView
-        android:id="@+id/search1"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/kolom" />
+    <TextView
+        android:id="@+id/judul"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:text="Daftar Dokter"
+        android:textColor="@color/colorPrimary"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/gambar" />
+<!--    <SearchView-->
+<!--        android:id="@+id/search1"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="45dp"-->
+<!--        android:layout_alignParentLeft="true"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:layout_marginLeft="24dp"-->
+<!--        android:layout_marginRight="24dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:background="@drawable/kolom" />-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewDokter"
