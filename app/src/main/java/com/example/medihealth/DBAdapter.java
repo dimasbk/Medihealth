@@ -89,7 +89,7 @@ public class DBAdapter extends RecyclerView.Adapter<DBAdapter.MyViewHolder>  {
             rsv_dokter_txt = itemView.findViewById(R.id.rsv_dokter);
             rsv_tanggal_txt = itemView.findViewById(R.id.rsv_tanggal);
 //            book_pages_txt = itemView.findViewById(R.id.book_pages_txt);
-            rsvRowLayout = itemView.findViewById(R.id.rsvRowLayout);
+            rsvRowLayout = itemView.findViewById(R.id.newrow);
             //Animate Recyclerview
             Animation translate_anim = AnimationUtils.loadAnimation(context, R.anim.translate_anim);
             rsvRowLayout.setAnimation(translate_anim);

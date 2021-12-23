@@ -19,6 +19,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -40,6 +41,7 @@ public class ReservasiFragment extends Fragment {
     DBHelper myDB;
     ArrayList<String> id_rsv, poli_rsv, dokter_rsv, asuransi_rsv, tglrsv_rsv;
     DBAdapter DBadapter;
+    MenuActivity activity = (MenuActivity) getActivity();
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -87,12 +89,12 @@ public class ReservasiFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_reservasi, container, false);
 
-//        myDB = new DBHelper(getContext());
-//        id_rsv = new ArrayList<>();
-//        poli_rsv = new ArrayList<>();
-//        dokter_rsv = new ArrayList<>();
-//        asuransi_rsv = new ArrayList<>();
-//        tglrsv_rsv = new ArrayList<>();
+        myDB = new DBHelper(getContext());
+        id_rsv = new ArrayList<>();
+        poli_rsv = new ArrayList<>();
+        dokter_rsv = new ArrayList<>();
+        asuransi_rsv = new ArrayList<>();
+        tglrsv_rsv = new ArrayList<>();
 
 //        FloatingActionButton add_reservasi;
 //        add_reservasi = view.findViewById(R.id.floatingActionButtonreservasi);
@@ -104,7 +106,8 @@ public class ReservasiFragment extends Fragment {
 //            }
 //        });
 
-//        storeDataInArrays();
+        storeDataInArrays();
+
 
 //        Collections.reverse(id_rsv);
 //        Collections.reverse(poli_rsv);
@@ -116,6 +119,10 @@ public class ReservasiFragment extends Fragment {
         add_button = view.findViewById(R.id.add_button);
         empty_imageview = view.findViewById(R.id.empty_imageview);
         no_data = view.findViewById(R.id.no_data);
+
+        DBAdapter dbAdapter = new DBAdapter(getContext(), id_rsv, poli_rsv, dokter_rsv, asuransi_rsv, tglrsv_rsv);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setAdapter(dbAdapter);
         add_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -161,8 +168,7 @@ public class ReservasiFragment extends Fragment {
     void storeDataInArrays(){
         Cursor cursor = myDB.readReservasiData();
         if(cursor.getCount() == 0){
-            empty_imageview.setVisibility(View.VISIBLE);
-            no_data.setVisibility(View.VISIBLE);
+            Toast.makeText(activity,"Text!",Toast.LENGTH_SHORT).show();
         }else{
             while (cursor.moveToNext()){
                 id_rsv.add(cursor.getString(0));
@@ -171,8 +177,6 @@ public class ReservasiFragment extends Fragment {
                 asuransi_rsv.add(cursor.getString(3));
                 tglrsv_rsv.add(cursor.getString(4));
             }
-            empty_imageview.setVisibility(View.GONE);
-            no_data.setVisibility(View.GONE);
         }
     }
 
